@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>View Record</h3>
+<div class="card">
+  <div class="card-header">
+    <b>{{ r.full_name }}</b> — {{ r.account_no }}
+    <span class="float-end text-muted">Status: {{ r.status }}</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4"><strong>Account Type</strong><br>{{ r.account_type }}</div>
+      <div class="col-md-4"><strong>Branch</strong><br>{{ r.branch_code }}</div>
+      <div class="col-md-4"><strong>Currency</strong><br>{{ r.currency }}</div>
+    </div>
+    <hr>
+    <p><strong>Email:</strong> {{ r.email }} &nbsp; <strong>Phone:</strong> {{ r.phone }}</p>
+    <p><strong>Address:</strong> {{ r.address }}</p>
+    <p><strong>KYC:</strong> {{ r.kyc_status }} &nbsp; <strong>Risk Score:</strong> {{ r.risk_score }}</p>
+    <hr>
+    <p><strong>Notes:</strong><br>{{ r.notes }}</p>
+  </div>
+  <div class="card-footer">
+    <a href="{{ url_for('edit_record', rid=r._id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
+    <form method="post" action="{{ url_for('delete_record', rid=r._id) }}" style="display:inline" onsubmit="return confirm('Delete this record?');">
+      <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+    </form>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary btn-sm float-end">Back</a>
+  </div>
+</div>
+{% endblock %}

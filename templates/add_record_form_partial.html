@@ -1,0 +1,109 @@
+<!-- templates/add_record_form_partial.html -->
+<div class="row">
+  <!-- Personal Information -->
+  <div class="col-md-6">
+    <div class="form-group mb-3">
+      <label for="full_name">Full Name</label>
+      <input type="text" class="form-control" id="full_name" name="full_name"
+             value="{{ rec.full_name if rec else '' }}" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="father_name">Father’s Name</label>
+      <input type="text" class="form-control" id="father_name" name="father_name"
+             value="{{ rec.father_name if rec else '' }}">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="dob">Date of Birth</label>
+      <input type="date" class="form-control" id="dob" name="dob"
+             value="{{ rec.dob if rec else '' }}">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="cnic">CNIC / National ID</label>
+      <input type="text" class="form-control" id="cnic" name="cnic"
+             value="{{ rec.cnic if rec else '' }}">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email"
+             value="{{ rec.email if rec else '' }}">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="phone">Phone</label>
+      <input type="text" class="form-control" id="phone" name="phone"
+             value="{{ rec.phone if rec else '' }}">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="address">Address</label>
+      <textarea class="form-control" id="address" name="address">{{ rec.address if rec else '' }}</textarea>
+    </div>
+  </div>
+
+  <!-- Account Information -->
+  <div class="col-md-6">
+    <div class="form-group mb-3">
+      <label for="account_number">Account Number</label>
+      <input type="text" class="form-control" id="account_number" name="account_number"
+             value="{{ rec.account_number if rec else '' }}" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="branch_code">Branch Code</label>
+      <input type="text" class="form-control" id="branch_code" name="branch_code"
+             value="{{ rec.branch_code if rec else '' }}">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="account_type">Account Type</label>
+      <select class="form-control" id="account_type" name="account_type">
+        <option value="savings" {% if rec and rec.account_type == 'savings' %}selected{% endif %}>Savings</option>
+        <option value="current" {% if rec and rec.account_type == 'current' %}selected{% endif %}>Current</option>
+        <option value="business" {% if rec and rec.account_type == 'business' %}selected{% endif %}>Business</option>
+      </select>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="balance">Initial Balance</label>
+      <input type="number" step="0.01" class="form-control" id="balance" name="balance"
+             value="{{ rec.balance if rec else '' }}">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="currency">Currency</label>
+      <select class="form-control" id="currency" name="currency">
+        <option value="PKR" {% if rec and rec.currency == 'PKR' %}selected{% endif %}>PKR</option>
+        <option value="USD" {% if rec and rec.currency == 'USD' %}selected{% endif %}>USD</option>
+        <option value="EUR" {% if rec and rec.currency == 'EUR' %}selected{% endif %}>EUR</option>
+      </select>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="security_level">Security Level</label>
+      <select class="form-control" id="security_level" name="security_level">
+        <option value="low" {% if rec and rec.security_level == 'low' %}selected{% endif %}>Low</option>
+        <option value="medium" {% if rec and rec.security_level == 'medium' %}selected{% endif %}>Medium</option>
+        <option value="high" {% if rec and rec.security_level == 'high' %}selected{% endif %}>High</option>
+      </select>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="status">Account Status</label>
+      <select class="form-control" id="status" name="status">
+        <option value="active" {% if rec and rec.status == 'active' %}selected{% endif %}>Active</option>
+        <option value="inactive" {% if rec and rec.status == 'inactive' %}selected{% endif %}>Inactive</option>
+        <option value="suspended" {% if rec and rec.status == 'suspended' %}selected{% endif %}>Suspended</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Action Buttons -->
+<div class="form-group mt-4 text-center">
+  <button type="submit" class="btn btn-primary px-4">Save Record</button>
+  <a href="{{ url_for('dashboard') }}" class="btn btn-secondary px-4">Cancel</a>
+</div>

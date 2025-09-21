@@ -1,0 +1,84 @@
+/* General */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar brand logo text spacing */
+.navbar-brand img {
+  max-height: 40px;
+}
+
+.navbar-brand span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Container padding fix for mobile */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Table responsiveness */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Mobile Friendly Table */
+@media (max-width: 768px) {
+  table.table {
+    border: 0;
+  }
+
+  table.table thead {
+    display: none;
+  }
+
+  table.table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  table.table td {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 14px;
+    border: none !important;
+    padding: 8px 5px;
+  }
+
+  table.table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #495057;
+  }
+}
+
+/* Form Styles */
+form .form-control {
+  border-radius: 8px;
+}
+
+form button {
+  border-radius: 8px;
+}
+
+/* Cards and content */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Alerts fix */
+.alert {
+  font-size: 14px;
+}

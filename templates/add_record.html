@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Add New Record</h3>
+<form method="POST" novalidate>
+  {{ form.hidden_tag() }}
+  <div class="card mb-3">
+    <div class="card-header">Personal Details</div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-md-6">
+          {{ form.full_name.label(class="form-label") }}
+          {{ form.full_name(class="form-control") }}
+        </div>
+        <div class="col-md-3">
+          {{ form.date_of_birth.label(class="form-label") }}
+          {{ form.date_of_birth(class="form-control") }}
+        </div>
+        <div class="col-md-3">
+          {{ form.national_id.label(class="form-label") }}
+          {{ form.national_id(class="form-control") }}
+        </div>
+        <div class="col-md-4">
+          {{ form.phone.label(class="form-label") }}
+          {{ form.phone(class="form-control") }}
+        </div>
+        <div class="col-md-4">
+          {{ form.email.label(class="form-label") }}
+          {{ form.email(class="form-control") }}
+        </div>
+        <div class="col-md-4">
+          {{ form.kyc_status.label(class="form-label") }}
+          {{ form.kyc_status(class="form-select") }}
+        </div>
+        <div class="col-12">
+          {{ form.address.label(class="form-label") }}
+          {{ form.address(class="form-control", rows="2") }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header">Account Details</div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-md-4">
+          {{ form.account_no.label(class="form-label") }}
+          {{ form.account_no(class="form-control") }}
+        </div>
+        <div class="col-md-4">
+          {{ form.account_type.label(class="form-label") }}
+          {{ form.account_type(class="form-select") }}
+        </div>
+        <div class="col-md-4">
+          {{ form.branch_code.label(class="form-label") }}
+          {{ form.branch_code(class="form-control") }}
+        </div>
+        <div class="col-md-4">
+          {{ form.currency.label(class="form-label") }}
+          {{ form.currency(class="form-select") }}
+        </div>
+        <div class="col-md-4">
+          {{ form.opening_balance.label(class="form-label") }}
+          {{ form.opening_balance(class="form-control") }}
+        </div>
+        <div class="col-md-4">
+          {{ form.transaction_limit_daily.label(class="form-label") }}
+          {{ form.transaction_limit_daily(class="form-control") }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header">Security & Risk</div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-md-3">
+          {{ form.risk_score.label(class="form-label") }}
+          {{ form.risk_score(class="form-control") }}
+        </div>
+        <div class="col-md-3">
+          {{ form.status.label(class="form-label") }}
+          {{ form.status(class="form-select") }}
+        </div>
+        <div class="col-12">
+          {{ form.notes.label(class="form-label") }}
+          {{ form.notes(class="form-control", rows="3") }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex gap-2">
+    <button class="btn btn-success btn-lg">Save Record</button>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary btn-lg">Cancel</a>
+  </div>
+</form>
+{% endblock %}

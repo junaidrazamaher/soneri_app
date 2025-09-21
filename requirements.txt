@@ -1,0 +1,6 @@
+Flask
+Flask-WTF
+pymongo
+dnspython
+gunicorn
+flask-login

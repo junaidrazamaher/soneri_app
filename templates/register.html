@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Register</h3>
+<form method="POST" class="w-50">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.username.label(class="form-label") }}
+    {{ form.username(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.email.label(class="form-label") }}
+    {{ form.email(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.password.label(class="form-label") }}
+    {{ form.password(class="form-control") }}
+    <div class="form-text">Password must be at least 8 characters.</div>
+  </div>
+  <button class="btn btn-success">Create Account</button>
+</form>
+{% endblock %}
